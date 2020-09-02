@@ -1,80 +1,81 @@
 {% extends "layouts/base-fullscreen.html" %}
 
-{% block title %} Login {% endblock %}
+{% block title %} Register {% endblock %} 
 
-{% block content %}   
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
 
-    <div class="auth-wrapper">
-        <div class="auth-content">
-            <div class="auth-bg">
-                <span class="r"></span>
-                <span class="r s"></span>
-                <span class="r s"></span>
-                <span class="r"></span>
-            </div>
-            <div class="card">
-                <div class="card-body text-center">
-                    <div class="mb-4">
-                        <i class="feather icon-user-plus auth-icon"></i>
+{% block content %}
+
+    <main>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                        <div class="card-header text-center">
+                            <h3 class="text-center font-weight-light my-4">Register</h3>
+                            <span class="text-center">
+                                {% if msg %}
+                                    {{ msg | safe }}
+                                {% else %}
+                                    Add your credentials
+                                {% endif %} 
+                            </span>                            
+                        </div>
+                        <div class="card-body">
+
+                            <form role="form" method="post" action="">
+
+                                {% csrf_token %} 
+
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputFirstName">Username</label>
+                                            {{ form.username }}
+                                        </div>
+                                        <span class="text-error">{{ form.username.errors }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="small mb-1" for="inputEmailAddress">Email</label>
+                                    {{ form.email }}
+                                </div>
+                                <span class="text-error">{{ form.email.errors }}</span>
+                                    
+                                <div class="form-group">
+                                    <label class="small mb-1" for="inputPassword">Password</label>
+                                    {{ form.password1 }}
+                                </div>
+                                <span class="text-error">{{ form.password1.errors }}</span>
+
+                                <div class="form-group">
+                                    <label class="small mb-1" for="inputPassword">Password Check</label>
+                                    {{ form.password2 }}
+                                </div>             
+                                <span class="text-error">{{ form.password2.errors }}</span>                   
+                                    
+                                <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                    <button type="submit" name="register" class="btn btn-primary">Register</button>
+                                    <div class="small">
+                                        <a href="{% url 'login' %}">Have an account? Login!</a></div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <div class="card-footer text-center">
+                            <div class="small">
+                                Coded by <a target="_blank" href="https://appseed.us">AppSeed</a></div>
+                        </div>
                     </div>
-                    <h3 class="mb-4">Sign up</h3>
-
-                    <span class="mb-0 text-muted">
-                        {% if msg %}
-                            {{ msg | safe }}
-                        {% else %}
-                            Add your credentials
-                        {% endif %} 
-                    </span>
-
-                    <br />
-                    <br />
-
-                    <form role="form" method="post" action="">
-
-                        {% csrf_token %}                    
-
-                        <div class="input-group mb-3">
-                            {{ form.username }}
-                        </div>
-                        <span class="text-error">{{ form.username.errors }}</span>
-
-                        <div class="input-group mb-3">
-                            {{ form.email }}
-                        </div>
-                        <span class="text-error">{{ form.email.errors }}</span>
-
-                        <div class="input-group mb-4">
-                            {{ form.password1 }}
-                        </div>
-                        <span class="text-error">{{ form.password1.errors }}</span>
-
-                        <div class="input-group mb-4">
-                            {{ form.password2 }}
-                        </div>
-                        <span class="text-error">{{ form.password2.errors }}</span>
-                        
-                        <div class="form-group text-left">
-                            <div class="checkbox checkbox-fill d-inline">
-                                <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
-                                <label for="checkbox-fill-a1" class="cr"> Agree with <a href="#">terms</a></label>
-                            </div>
-                        </div>
-                        <button type="submit" name="register" class="btn btn-primary shadow-2 mb-4">Register</button>
-
-                    </form>
-
-                    <p class="mb-0 text-muted">Already have an account? <a href="{% url 'login' %}" >Login</a></p>
-                    <br />
-                    <p class="mb-2 text-muted">
-                        &copy; <a target="_blank" rel="noopener noreferrer"  
-                                  href="https://codedthemes.com/?ref=appseed">CodedThemes</a> 
-                        - <a target="_blank" rel="noopener noreferrer" 
-                             href="https://appseed.us/boilerplate-code/django-dashboards">Django Boilerplate Dashboard</a>
-                    </p>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
 {% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
