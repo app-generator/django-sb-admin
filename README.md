@@ -18,8 +18,8 @@ SB Admin is a free, open source, Bootstrap 4 based admin theme perfect for quick
 
 > Links
 
-- [Django Dashboard - Sb Admin](https://appseed.us/admin-dashboards/django-dashboard-sb-admin) - Official product page
-- [Django Dashboard Sb Admin Demo](https://django-dashboard-sb-admin.appseed.us/) - LIVE App
+- [Django SB Admin](https://appseed.us/admin-dashboards/django-dashboard-sb-admin) - product page
+- [Django SB Admin](https://django-sb-admin.appseed-srv1.com) - LIVE deploy
 
 <br />
 
