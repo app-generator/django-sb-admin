@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.4] 2022-06-01
+### Improvements
+
+- Built with [SB Admin Generator](https://appseed.us/generator/sb-admin/)
+  - Timestamp: `2022-06-01 14:34`
+
 ## [1.0.3] 2022-01-20
 ### Improvements
 
