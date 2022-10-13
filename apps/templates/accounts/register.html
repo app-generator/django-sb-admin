@@ -24,45 +24,57 @@
                         </div>
                         <div class="card-body">
 
-                            <form role="form" method="post" action="">
+                            {% if success %}
+                            
+                                <div class="text-center"> 
 
-                                {% csrf_token %} 
+                                    <a href="{% url 'login' %}" class="btn btn-primary">Sign IN</a>
 
-                                <div class="form-row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="small mb-1" for="inputFirstName">Username</label>
-                                            {{ form.username }}
+                                </div>
+
+                            {% else %}
+
+                                <form role="form" method="post" action="">
+
+                                    {% csrf_token %} 
+
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputFirstName">Username</label>
+                                                {{ form.username }}
+                                            </div>
+                                            <span class="text-error">{{ form.username.errors }}</span>
                                         </div>
-                                        <span class="text-error">{{ form.username.errors }}</span>
                                     </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                    {{ form.email }}
-                                </div>
-                                <span class="text-error">{{ form.email.errors }}</span>
-                                    
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputPassword">Password</label>
-                                    {{ form.password1 }}
-                                </div>
-                                <span class="text-error">{{ form.password1.errors }}</span>
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputEmailAddress">Email</label>
+                                        {{ form.email }}
+                                    </div>
+                                    <span class="text-error">{{ form.email.errors }}</span>
+                                        
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputPassword">Password</label>
+                                        {{ form.password1 }}
+                                    </div>
+                                    <span class="text-error">{{ form.password1.errors }}</span>
 
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputPassword">Password Check</label>
-                                    {{ form.password2 }}
-                                </div>             
-                                <span class="text-error">{{ form.password2.errors }}</span>                   
-                                    
-                                <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                    <button type="submit" name="register" class="btn btn-primary">Register</button>
-                                    <div class="small">
-                                        <a href="{% url 'login' %}">Login</a></div>
-                                </div>
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputPassword">Password Check</label>
+                                        {{ form.password2 }}
+                                    </div>             
+                                    <span class="text-error">{{ form.password2.errors }}</span>                   
+                                        
+                                    <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                        <button type="submit" name="register" class="btn btn-primary">Register</button>
+                                        <div class="small">
+                                            <a href="{% url 'login' %}">Login</a></div>
+                                    </div>
 
-                            </form>
+                                </form>
+                            
+                            {% endif %}     
 
                         </div>
                         <div class="card-footer text-center">
